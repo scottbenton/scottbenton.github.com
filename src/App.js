@@ -1,25 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import Header from './Components/Header';
 import './App.css';
+import { amber } from '@material-ui/core/colors';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { setLocalStorage, getLocalStorage } from './HelperFunctions/StorageHelpers';
 
+const theme = (type) => createMuiTheme({
+  palette: {
+    type: type,
+    primary: {
+      main: (type === 'light' ? '#5c6bc0' : '#5c6bc0'),
+    },
+    secondary: amber,
+    background: {
+      default: (type === 'light' ? '#F5F5F5' : '#121212'),
+      paper: (type === 'light' ? '#FFFFFF' : '#212121'),
+    },
+  }
+});
+// '#f5f5f5'
 function App() {
+  const [themeType, setThemeType] = React.useState(getLocalStorage('theme') || 'light');
+
+  const toggleTheme = () => {
+    setThemeType(prevThemeType => {
+      return prevThemeType === 'light' ? 'dark' : 'light';
+    });
+  }
+
+  useEffect(() => {
+    setLocalStorage('theme', themeType);
+  }, [themeType])
+
+  const myTheme = theme(themeType);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MuiThemeProvider theme={myTheme}>
+      <CssBaseline />
+      <Header toggleTheme={toggleTheme} />
+    </MuiThemeProvider>
   );
 }
 
