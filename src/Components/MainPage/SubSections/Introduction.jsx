@@ -12,11 +12,6 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     padding: theme.spacing(5),
-    position: 'absolute',
-    top: '50%',
-
-    '-ms-transform': 'translateY(-50%)',
-    transform: 'translateY(-50%)',
   },
   title: {
     marginBottom: theme.spacing(2),
@@ -50,45 +45,43 @@ export default function Introduction(props) {
   }
 
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper} elevation={12}>
-        <div className={classes.avatarHolder}>
-          {profile ?
-            <Avatar alt="SB" src={profile} className={classes.avatar} />
-            :
-            <Avatar className={classes.avatar}>
-              <NoImageIcon className={classes.avatar} />
-            </Avatar>
-          }
-        </div>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
+    <Paper className={classes.paper} elevation={12}>
+      <div className={classes.avatarHolder}>
+        {profile ?
+          <Avatar alt="SB" src={profile} className={classes.avatar} />
+          :
+          <Avatar className={classes.avatar}>
+            <NoImageIcon className={classes.avatar} />
+          </Avatar>
+        }
+      </div>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
 
-            <Typography variant='h3' component='h3' align='center' className={classes.title}>
-              Scott Benton
+          <Typography variant='h3' component='h3' align='center' className={classes.title}>
+            Scott Benton
           </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Divider />
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant='body1' component='p'>
-              I'm a Software Engineer with experience in both front end development and back end development. Based in Newark, DE.
-          </Typography>
-          </Grid>
-
-          <Grid item xs={12}>
-            <Divider />
-          </Grid>
-
-          <Grid item xs={12} className={classes.floatLeft}>
-            <div className={classes.spaceEater} />
-            <Button onClick={contactMe} variant='contained' color='primary'>
-              Contact Me
-          </Button>
-          </Grid>
         </Grid>
-      </Paper>
-    </div>
+        <Grid item xs={12}>
+          <Divider />
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant='body1' component='p'>
+            I'm a Software Engineer with experience in both front end and back end development. Based in Newark, DE.
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Divider />
+        </Grid>
+
+        <Grid item xs={12} className={classes.floatLeft}>
+          <div className={classes.spaceEater} />
+          <Button onClick={contactMe} variant='contained' color='primary'>
+            Contact Me
+          </Button>
+        </Grid>
+      </Grid>
+    </Paper>
   );
 }
