@@ -57,10 +57,11 @@ export default function MobileDrawer(props) {
           <SwipeableDrawer
             open={open}
             onClose={() => setOpen(false)}
-            onOpen={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
             classes={{
               paper: classes.drawer,
             }}
+
           >
             {props.children}
           </SwipeableDrawer>
