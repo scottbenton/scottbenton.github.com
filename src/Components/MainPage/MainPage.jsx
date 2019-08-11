@@ -16,8 +16,11 @@ const useStyles = makeStyles(theme => ({
     height: '45vh',
   },
   badgeHelper: {
-    height: 150,
+    padding: theme.spacing(10),
   },
+  topSpace: {
+    padding: theme.spacing(6),
+  }
 }));
 
 const scrollToRef = (ref) => {
@@ -51,13 +54,13 @@ export default function MainPage(props) {
 
   return (
     <div className={classes.root} >
-      <div ref={refs['info']}>
-        <div className={classes.badgeHelper} />
+      <div ref={refs['info']} className={classes.container}>
+        <div className={classes.topSpace} />
         <Introduction />
       </div>
       <div className={classes.pageBreak} />
-      <div ref={refs['about']}>
-        <div className={classes.badgeHelper} />
+      <div ref={refs['about']} className={classes.container}>
+        <div className={classes.topSpace} />
         <About />
       </div>
       <div className={classes.pageBreak} />

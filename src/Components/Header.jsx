@@ -25,7 +25,6 @@ const useStyles = makeStyles(theme => ({
   },
   rootMobile: {
     margin: theme.spacing(2),
-    marginTop: theme.spacing(10),
   },
   sidebarTitle: {
     padding: theme.spacing(2),

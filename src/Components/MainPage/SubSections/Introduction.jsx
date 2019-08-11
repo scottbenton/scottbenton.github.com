@@ -34,6 +34,9 @@ const useStyles = makeStyles(theme => ({
   avatarHolder: {
     marginTop: -125,
     marginBottom: theme.spacing(3),
+  },
+  avatarSpacer: {
+    height: 90,
   }
 }));
 
@@ -45,43 +48,46 @@ export default function Introduction(props) {
   }
 
   return (
-    <Paper className={classes.paper} elevation={12}>
-      <div className={classes.avatarHolder}>
-        {profile ?
-          <Avatar alt="SB" src={profile} className={classes.avatar} />
-          :
-          <Avatar className={classes.avatar}>
-            <NoImageIcon className={classes.avatar} />
-          </Avatar>
-        }
-      </div>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
+    <>
+      <div className={classes.avatarSpacer} />
+      <Paper className={classes.paper} elevation={12}>
+        <div className={classes.avatarHolder}>
+          {profile ?
+            <Avatar alt="SB" src={profile} className={classes.avatar} />
+            :
+            <Avatar className={classes.avatar}>
+              <NoImageIcon className={classes.avatar} />
+            </Avatar>
+          }
+        </div>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
 
-          <Typography variant='h3' component='h3' align='center' className={classes.title}>
-            Scott Benton
+            <Typography variant='h3' component='h3' align='center' className={classes.title}>
+              Scott Benton
           </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Divider />
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant='body1' component='p'>
-            I'm a Software Engineer with experience in both front end and back end development. Based in Newark, DE.
+          </Grid>
+          <Grid item xs={12}>
+            <Divider />
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant='body1' component='p'>
+              I'm a Software Engineer with experience in both front end and back end development. Based in Newark, DE.
           </Typography>
-        </Grid>
+          </Grid>
 
-        <Grid item xs={12}>
-          <Divider />
-        </Grid>
+          <Grid item xs={12}>
+            <Divider />
+          </Grid>
 
-        <Grid item xs={12} className={classes.floatLeft}>
-          <div className={classes.spaceEater} />
-          <Button onClick={contactMe} variant='contained' color='primary'>
-            Contact Me
+          <Grid item xs={12} className={classes.floatLeft}>
+            <div className={classes.spaceEater} />
+            <Button onClick={contactMe} variant='contained' color='primary'>
+              Contact Me
           </Button>
+          </Grid>
         </Grid>
-      </Grid>
-    </Paper>
+      </Paper>
+    </>
   );
 }

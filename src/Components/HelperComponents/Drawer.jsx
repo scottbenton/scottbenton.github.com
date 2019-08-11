@@ -25,6 +25,9 @@ const useStyles = makeStyles(theme => ({
   drawer: {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
+  },
+  appbarSpacer: {
+    height: 64,
   }
 }));
 
@@ -50,6 +53,7 @@ export default function MobileDrawer(props) {
               </Button>
             </Toolbar>
           </AppBar>
+          <div className={classes.appbarSpacer} />
           <SwipeableDrawer
             open={open}
             onClose={() => setOpen(false)}
