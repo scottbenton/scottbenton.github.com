@@ -63,7 +63,7 @@ export default function Introduction(props) {
         <Grid container spacing={3}>
           <Grid item xs={12}>
 
-            <Typography variant='h3' component='h3' align='center' className={classes.title}>
+            <Typography variant='h4' component='h4' align='center' className={classes.title}>
               Scott Benton
           </Typography>
           </Grid>
@@ -84,7 +84,7 @@ export default function Introduction(props) {
             <div className={classes.spaceEater} />
             <Button onClick={contactMe} variant='contained' color='primary'>
               Contact Me
-          </Button>
+            </Button>
           </Grid>
         </Grid>
       </Paper>

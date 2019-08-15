@@ -62,7 +62,7 @@ export default function Header(props) {
           {sections.map((section) =>
             <ListItem button key={section.id} onClick={() => setSelectedAnchor(section.id)}>
               {section.icon}
-              {isMobile ? <ListItemText primary={section.label} className={classes.listText} /> : null}
+              <ListItemText primary={section.label} className={classes.listText} />
             </ListItem>
           )}
         </List>
@@ -70,7 +70,7 @@ export default function Header(props) {
         <List>
           <ListItem button key='theme' onClick={() => props.toggleTheme()}>
             <ThemeIcon className={classes.listIcon} />
-            {isMobile ? <ListItemText primary={'Toggle Theme'} className={classes.listText} /> : null}
+            <ListItemText primary={'Toggle Theme'} className={classes.listText} />
           </ListItem>
         </List>
       </div>

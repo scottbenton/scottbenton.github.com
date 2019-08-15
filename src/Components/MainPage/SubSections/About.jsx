@@ -40,11 +40,11 @@ export default function About(props) {
   const languages = ['Java', 'C++', 'C', 'Python', 'React', 'Javascript'];
 
   return (
-    <Paper className={classes.paper} >
+    <Paper className={classes.paper} elevation={12}>
       <Grid container spacing={3}>
 
         <Grid item xs={12}>
-          <Typography variant='h3' component='h3' align='center' className={classes.title}>
+          <Typography variant='h4' component='h4' align='center' className={classes.title}>
             About Me
           </Typography>
         </Grid>

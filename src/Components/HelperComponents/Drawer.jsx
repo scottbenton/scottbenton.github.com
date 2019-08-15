@@ -54,6 +54,7 @@ export default function MobileDrawer(props) {
             </Toolbar>
           </AppBar>
           <div className={classes.appbarSpacer} />
+
           <SwipeableDrawer
             open={open}
             onClose={() => setOpen(false)}

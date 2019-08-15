@@ -4,6 +4,9 @@ import ScrollableAnchor, { goToTop, goToAnchor, removeHash } from 'react-scrolla
 
 import Introduction from './SubSections/Introduction';
 import About from './SubSections/About';
+import Work from './SubSections/Work';
+import Contacts from './SubSections/Contact';
+import Projects from './SubSections/Projects';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: 'auto',
   },
   pageBreak: {
-    height: '45vh',
+    height: '70vh',
   },
   badgeHelper: {
     padding: theme.spacing(10),
@@ -54,16 +57,37 @@ export default function MainPage(props) {
 
   return (
     <div className={classes.root} >
+
       <div ref={refs['info']} className={classes.container}>
         <div className={classes.topSpace} />
         <Introduction />
       </div>
       <div className={classes.pageBreak} />
+
       <div ref={refs['about']} className={classes.container}>
         <div className={classes.topSpace} />
         <About />
       </div>
       <div className={classes.pageBreak} />
+
+      <div ref={refs['work']}>
+        <div className={classes.topSpace} />
+        <Work />
+      </div>
+      <div className={classes.pageBreak} />
+
+      <div ref={refs['projects']}>
+        <div className={classes.topSpace} />
+        <Projects />
+      </div>
+      <div className={classes.pageBreak} />
+
+      <div ref={refs['contact']}>
+        <div className={classes.topSpace} />
+        <Contacts />
+      </div>
+      <div className={classes.pageBreak} />
+
     </div>
   )
 }
