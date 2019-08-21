@@ -21,7 +21,7 @@ import { useIsEqualOrSmallerThan } from '../HelperFunctions/SizeHelpers';
 const useStyles = makeStyles(theme => ({
   root: {
     margin: theme.spacing(2),
-    marginLeft: theme.spacing(10),
+    marginLeft: 216,
   },
   rootMobile: {
     margin: theme.spacing(2),
@@ -78,6 +78,7 @@ export default function Header(props) {
   }
 
   const sections = [
+    { id: 'info', label: '<Scott Benton />' },
     { id: 'about', label: 'About Me', icon: <PersonIcon className={classes.listIcon} /> },
     { id: 'work', label: 'Work Experience', icon: <WorkIcon className={classes.listIcon} /> },
     { id: 'projects', label: 'Projects', icon: <ProjectIcon className={classes.listIcon} /> },
@@ -87,17 +88,7 @@ export default function Header(props) {
   return (
     <div>
       <Drawer isMobile={isMobile} setSelectedAnchor={setSelectedAnchor}>
-        <SidebarOptions sections={props.sections} toggleTheme={props.toggleTheme}>
-          {!isMobile ?
-            <>
-              <Button className={classes.sidebarTitle} onClick={() => setSelectedAnchor('info')} color='inherit'>
-                {'<SB/>'}
-              </Button>
-              <Divider />
-            </>
-            : null
-          }
-        </SidebarOptions>
+        <SidebarOptions sections={props.sections} toggleTheme={props.toggleTheme} />
       </Drawer>
       <div className={isMobile ? classes.rootMobile : classes.root}>
         <MainPage selectedAnchor={selectedAnchor} setSelectedAnchor={setSelectedAnchor} />

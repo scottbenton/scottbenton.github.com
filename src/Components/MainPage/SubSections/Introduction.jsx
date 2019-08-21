@@ -43,10 +43,6 @@ const useStyles = makeStyles(theme => ({
 export default function Introduction(props) {
   const classes = useStyles();
 
-  const contactMe = () => {
-    window.open('mailto:scott.ma.benton@gmail.com');
-  }
-
   return (
     <>
       <div className={classes.avatarSpacer} />
@@ -82,7 +78,7 @@ export default function Introduction(props) {
 
           <Grid item xs={12} className={classes.floatLeft}>
             <div className={classes.spaceEater} />
-            <Button onClick={contactMe} variant='contained' color='primary'>
+            <Button onClick={() => props.setSelectedAnchor('contact')} variant='contained' color='primary'>
               Contact Me
             </Button>
           </Grid>

@@ -60,7 +60,7 @@ export default function MainPage(props) {
 
       <div ref={refs['info']} className={classes.container}>
         <div className={classes.topSpace} />
-        <Introduction />
+        <Introduction setSelectedAnchor={props.setSelectedAnchor} />
       </div>
       <div className={classes.pageBreak} />
 

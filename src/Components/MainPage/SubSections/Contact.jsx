@@ -22,12 +22,6 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
   },
-  resumeButton: {
-    margin: theme.spacing(1),
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    float: 'right',
-  }
 }));
 
 export default function Contacts(props) {
@@ -70,7 +64,7 @@ export default function Contacts(props) {
 
         <Grid item xs={12} sm={6}>
 
-          <Button onClick={downloadResume} className={classes.resumeButton} variant='contained' color='primary'>
+          <Button onClick={downloadResume} className={classes.button} variant='contained' color='primary'>
             Download my Resume
             <SaveIcon className={classes.rightIcon} />
           </Button>
