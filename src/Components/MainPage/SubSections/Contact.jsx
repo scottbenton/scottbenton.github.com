@@ -5,6 +5,8 @@ import { Typography, Paper, Grid, Divider, Button } from '@material-ui/core';
 import EmailIcon from '@material-ui/icons/Email';
 import SaveIcon from '@material-ui/icons/Save';
 import { downloadFile } from '../../../HelperFunctions/DownloadFile';
+
+import pageContent from '../../../Resources/PageContent/contact.json';
 import resume from '../../../Resources/Resume-ScottBenton.pdf'
 
 const useStyles = makeStyles(theme => ({
@@ -41,7 +43,7 @@ export default function Contacts(props) {
 
         <Grid item xs={12}>
           <Typography variant='h4' component='h4' align='center' className={classes.title}>
-            Get in Touch!
+            {pageContent.title}
           </Typography>
         </Grid>
 
@@ -49,11 +51,13 @@ export default function Contacts(props) {
           <Divider />
         </Grid>
 
-        <Grid item xs={12}>
-          <Typography variant='p' component='p' align='left' >
-            Feel free to reach out and contact me with any offers or any opportunities.
-          </Typography>
-        </Grid>
+        {pageContent.content.map((content) => (
+          <Grid item xs={12}>
+            <Typography variant='p' component='p' align='left' >
+              {content}
+            </Typography>
+          </Grid>
+        ))}
 
         <Grid item xs={12} sm={6}>
           <Button onClick={contactMe} variant='contained' color='primary' className={classes.button}>

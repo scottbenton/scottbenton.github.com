@@ -3,6 +3,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import { Typography, Paper, Grid, Divider, IconButton } from '@material-ui/core';
 
+import pageContent from '../../../Resources/PageContent/projects.json';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -20,9 +21,13 @@ export default function Projects(props) {
   const classes = useStyles();
   const theme = useTheme();
 
-  const gotoGithub = () => {
-    window.open('https://github.com/scottbenton/');
+  const goToLink = (link) => {
+    window.open(link);
   }
+
+  pageContent.content.map((content) => {
+    console.log(content.icon.dark, content.icon.light);
+  })
 
   return (
     <Paper className={classes.paper} elevation={12}>
@@ -30,30 +35,25 @@ export default function Projects(props) {
 
         <Grid item xs={12}>
           <Typography variant='h4' component='h4' align='center' className={classes.title}>
-            My Projects
+            {pageContent.title}
           </Typography>
         </Grid>
 
         <Grid item xs={12}>
           <Divider />
         </Grid>
-
-        <Grid item xs={2}>
-          <IconButton onClick={gotoGithub}>
-            {theme.palette.type === 'light' ?
-              <img src={require('../../../Resources/GitHub-Mark-32px.png')} alt='GitHub' />
-              :
-              <img src={require('../../../Resources/GitHub-Mark-Light-32px.png')} alt='GitHub' />
+        {pageContent.content.map((content) => (
+          <Grid item xs={12}>
+            {content.icon &&
+              <IconButton onClick={() => goToLink(content.link)}>
+                <img src={theme.palette.type === 'light' ? content.icon.light : content.icon.dark} alt={content.title} />
+              </IconButton>
             }
-          </IconButton>
-        </Grid>
-
-        <Grid item xs={10}>
-          <Typography variant='p' component='p' align='left' className={classes.gitHubText}>
-            Visit my GitHub to view my personal projects I am working on!
-          </Typography>
-        </Grid>
-
+            <Typography variant='p' component='p' align='left' className={classes.gitHubText}>
+              {content.description}
+            </Typography>
+          </Grid>
+        ))}
       </Grid>
     </Paper>
   )

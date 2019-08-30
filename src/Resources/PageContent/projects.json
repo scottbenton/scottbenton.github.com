@@ -1,0 +1,14 @@
+{
+    "title": "My Projects",
+    "content": [
+        {
+            "icon": {
+                "light": "/src/Resources/GitHub-Mark-32px.png",
+                "dark": "/src/Resources/GitHub-Mark-Light-32px.png"
+            },
+            "title": "GitHub",
+            "description": "Visit my GitHub profile to see my current projects.",
+            "link": "https://github.com/scottbenton/"
+        }
+    ]
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button, Paper, Grid, Divider, Chip } from '@material-ui/core';
+import pageContent from '../../../Resources/PageContent/about.json';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -45,19 +46,20 @@ export default function About(props) {
 
         <Grid item xs={12}>
           <Typography variant='h4' component='h4' align='center' className={classes.title}>
-            About Me
+            {pageContent.title}
           </Typography>
         </Grid>
 
         <Grid item xs={12}>
           <Divider />
         </Grid>
-
-        <Grid item xs={12}>
-          <Typography variant='body1' component='p'>
-            Hello! I'm Scott, a software engineer from Newark Delaware. I enjoy working with new languages and learning new things. I'm graduating from the University of Delaware in December, where I have studied topics such as multi-threading, computer graphics, software engineering processing, and Artificial Intelligence. In addition, I've also recently been working on learning front end development.
+        {pageContent.content.map((content) => (
+          <Grid item xs={12}>
+            <Typography variant='body1' component='p'>
+              {content}
             </Typography>
-        </Grid>
+          </Grid>
+        ))}
 
         <Grid item xs={12}>
           <Divider />

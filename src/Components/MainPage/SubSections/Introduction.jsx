@@ -4,6 +4,7 @@ import { Typography, Button, Paper, Grid, Divider, Avatar } from '@material-ui/c
 import NoImageIcon from '@material-ui/icons/Face';
 
 import profile from '../../../Resources/ProfilePic.jpg';
+import pageContent from '../../../Resources/PageContent/introduction.json';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -60,17 +61,20 @@ export default function Introduction(props) {
           <Grid item xs={12}>
 
             <Typography variant='h4' component='h4' align='center' className={classes.title}>
-              Scott Benton
-          </Typography>
+              {pageContent.title}
+            </Typography>
           </Grid>
           <Grid item xs={12}>
             <Divider />
           </Grid>
-          <Grid item xs={12}>
-            <Typography variant='body1' component='p'>
-              I'm a Software Engineer with experience in both front end and back end development. Based in Newark, DE.
-          </Typography>
-          </Grid>
+          {pageContent.content.map((content) => (
+            <Grid item xs={12}>
+              <Typography variant='body1' component='p'>
+                {content}
+              </Typography>
+            </Grid>
+          ))}
+
 
           <Grid item xs={12}>
             <Divider />
