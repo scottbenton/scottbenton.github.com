@@ -3,7 +3,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import { Typography, Paper, Grid, Divider, IconButton } from '@material-ui/core';
 
-import pageContent from '../../../Resources/PageContent/projects.json';
+import pageContent from '../../../Resources/PageContent/projects.js';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
   title: {
     marginBottom: theme.spacing(2),
   },
-  gitHubText: {
-    marginTop: 20,
+  contentDescription: {
+    display:'inline-block',
   }
 }));
 
@@ -24,10 +24,6 @@ export default function Projects(props) {
   const goToLink = (link) => {
     window.open(link);
   }
-
-  pageContent.content.map((content) => {
-    console.log(content.icon.dark, content.icon.light);
-  })
 
   return (
     <Paper className={classes.paper} elevation={12}>
@@ -42,14 +38,14 @@ export default function Projects(props) {
         <Grid item xs={12}>
           <Divider />
         </Grid>
-        {pageContent.content.map((content) => (
-          <Grid item xs={12}>
+        {pageContent.content.map((content, index) => (
+          <Grid item xs={12} key={index}>
             {content.icon &&
               <IconButton onClick={() => goToLink(content.link)}>
                 <img src={theme.palette.type === 'light' ? content.icon.light : content.icon.dark} alt={content.title} />
               </IconButton>
             }
-            <Typography variant='p' component='p' align='left' className={classes.gitHubText}>
+            <Typography align='left' className={classes.contentDescription}>
               {content.description}
             </Typography>
           </Grid>

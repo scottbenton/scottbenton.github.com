@@ -3,8 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button, Paper, Grid, Divider, Avatar } from '@material-ui/core';
 import NoImageIcon from '@material-ui/icons/Face';
 
-import profile from '../../../Resources/ProfilePic.jpg';
-import pageContent from '../../../Resources/PageContent/introduction.json';
+import pageContent from '../../../Resources/PageContent/introduction.js';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -49,8 +48,8 @@ export default function Introduction(props) {
       <div className={classes.avatarSpacer} />
       <Paper className={classes.paper} elevation={12}>
         <div className={classes.avatarHolder}>
-          {profile ?
-            <Avatar alt="SB" src={profile} className={classes.avatar} />
+          {pageContent.profilePic ?
+            <Avatar alt="SB" src={pageContent.profilePic} className={classes.avatar} />
             :
             <Avatar className={classes.avatar}>
               <NoImageIcon className={classes.avatar} />
@@ -67,8 +66,8 @@ export default function Introduction(props) {
           <Grid item xs={12}>
             <Divider />
           </Grid>
-          {pageContent.content.map((content) => (
-            <Grid item xs={12}>
+          {pageContent.content.map((content, index) => (
+            <Grid item xs={12} key={index} >
               <Typography variant='body1' component='p'>
                 {content}
               </Typography>

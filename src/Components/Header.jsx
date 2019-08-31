@@ -3,10 +3,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ThemeIcon from '@material-ui/icons/Brightness7';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Button from '@material-ui/core/Button';
 
 import PersonIcon from '@material-ui/icons/Person';
 import WorkIcon from '@material-ui/icons/Work';

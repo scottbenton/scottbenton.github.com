@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import ScrollableAnchor, { goToTop, goToAnchor, removeHash } from 'react-scrollable-anchor';
 
 import Introduction from './SubSections/Introduction';
 import About from './SubSections/About';
@@ -43,17 +42,19 @@ export default function MainPage(props) {
     contact: useRef(),
   }
 
+  const {selectedAnchor, setSelectedAnchor} = props;
+
   useEffect(() => {
-    if (props.selectedAnchor) {
-      if (props.selectedAnchor === 'info') {
+    if (selectedAnchor) {
+      if (selectedAnchor === 'info') {
         scrollToRef(refs['info'])
       }
       else {
-        scrollToRef(refs[props.selectedAnchor]);
+        scrollToRef(refs[selectedAnchor]);
       }
-      props.setSelectedAnchor();
+      setSelectedAnchor();
     }
-  }, [props.selectedAnchor])
+  }, [selectedAnchor, setSelectedAnchor, refs])
 
   return (
     <div className={classes.root} >

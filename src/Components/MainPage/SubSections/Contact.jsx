@@ -6,8 +6,8 @@ import EmailIcon from '@material-ui/icons/Email';
 import SaveIcon from '@material-ui/icons/Save';
 import { downloadFile } from '../../../HelperFunctions/DownloadFile';
 
-import pageContent from '../../../Resources/PageContent/contact.json';
-import resume from '../../../Resources/Resume-ScottBenton.pdf'
+import pageContent from '../../../Resources/PageContent/contact.js';
+import constants from '../../../Resources/Constants';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -30,11 +30,11 @@ export default function Contacts(props) {
   const classes = useStyles();
 
   const contactMe = () => {
-    window.open('mailto:scott.ma.benton@gmail.com');
+    window.open('mailto:' + constants.emailAddress);
   }
   ///home/scott/Documents/portfolio/src/Resources/Resume-ScottBenton.pdf
   const downloadResume = () => {
-    downloadFile(resume);
+    downloadFile(constants.resume);
   }
 
   return (
@@ -51,9 +51,9 @@ export default function Contacts(props) {
           <Divider />
         </Grid>
 
-        {pageContent.content.map((content) => (
-          <Grid item xs={12}>
-            <Typography variant='p' component='p' align='left' >
+        {pageContent.content.map((content, index) => (
+          <Grid item xs={12} key={index}>
+            <Typography align='left' >
               {content}
             </Typography>
           </Grid>

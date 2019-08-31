@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 import { useIsEqualOrSmallerThan } from '../../HelperFunctions/SizeHelpers';
 
@@ -64,7 +64,7 @@ export default function VerticalTabs(props) {
               aria-label="scrollable auto tabs example"
             >
               {props.tabs.map((label, index) =>
-                <Tab label={label} id={"tab-" + index} />
+                <Tab label={label} id={"tab-" + index} key={index} />
               )}
             </Tabs>
             :
@@ -78,7 +78,7 @@ export default function VerticalTabs(props) {
               className={classes.tabs}
             >
               {props.tabs.map((label, index) =>
-                <Tab label={label} id={"tab-" + index} />
+                <Tab label={<Typography>{label}</Typography>} id={"tab-" + index} key={index} />
               )}
             </Tabs>
           }
@@ -86,7 +86,7 @@ export default function VerticalTabs(props) {
 
         <Grid item sm={12} md={9}>
           {props.tabContent.map((content, index) =>
-            <TabPanel value={props.openTab} index={index}>
+            <TabPanel value={props.openTab} index={index} key={index}>
               {content}
             </TabPanel>
           )}
