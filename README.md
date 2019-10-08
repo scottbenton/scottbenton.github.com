@@ -1,6 +1,6 @@
 # Portfolio Website
 
-> View the final product [here](https://sbenton.net)
+> View the final product [here](https://scottbenton.github.io/portfolio/)
 
 ---
 
